@@ -1,0 +1,182 @@
+[
+  {
+    "id": "general_001",
+    "type": "quiz",
+    "category": "general",
+    "title": "日本の首都",
+    "difficulty": "easy",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "日本の首都はどこですか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "大阪"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "東京"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "名古屋"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "横浜"
+        }
+      ],
+      "correct_answers": ["b"]
+    }
+  },
+  {
+    "id": "general_002",
+    "type": "quiz",
+    "category": "general",
+    "title": "世界一高い山",
+    "difficulty": "easy",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "世界で一番高い山は何ですか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "富士山"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "エベレスト"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "K2"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "マッターホルン"
+        }
+      ],
+      "correct_answers": ["b"]
+    }
+  },
+  {
+    "id": "general_003",
+    "type": "quiz",
+    "category": "general",
+    "title": "太陽系の惑星",
+    "difficulty": "medium",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "太陽系の惑星は何個ありますか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "7個"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "8個"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "9個"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "10個"
+        }
+      ],
+      "correct_answers": ["b"]
+    }
+  },
+  {
+    "id": "general_004",
+    "type": "quiz",
+    "category": "general",
+    "title": "オリンピック開催年",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "東京オリンピックが開催された年は？（複数選択可）"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "1964年"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "1972年"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "2021年"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "1968年"
+        }
+      ],
+      "correct_answers": ["a", "c"]
+    }
+  },
+  {
+    "id": "general_005",
+    "type": "quiz",
+    "category": "general",
+    "title": "世界最長の川",
+    "difficulty": "medium",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "世界で最も長い川はどれですか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "ナイル川"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "アマゾン川"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "ミシシッピ川"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "長江"
+        }
+      ],
+      "correct_answers": ["a"]
+    }
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "id": "science_001",
+    "type": "quiz",
+    "category": "science",
+    "title": "水の化学式",
+    "difficulty": "easy",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "水の化学式は何ですか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "H2O"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "CO2"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "O2"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "H2O2"
+        }
+      ],
+      "correct_answers": ["a"]
+    }
+  },
+  {
+    "id": "science_002",
+    "type": "quiz",
+    "category": "science",
+    "title": "光の速度",
+    "difficulty": "medium",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "真空中の光の速度は約何km/sですか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "約100,000km/s"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "約300,000km/s"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "約500,000km/s"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "約1,000,000km/s"
+        }
+      ],
+      "correct_answers": ["b"]
+    }
+  },
+  {
+    "id": "science_003",
+    "type": "quiz",
+    "category": "science",
+    "title": "周期表の元素",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "原子番号6の元素は何ですか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "酸素"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "炭素"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "窒素"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "ホウ素"
+        }
+      ],
+      "correct_answers": ["b"]
+    }
+  },
+  {
+    "id": "science_004",
+    "type": "quiz",
+    "category": "science",
+    "title": "人体の骨の数",
+    "difficulty": "medium",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "成人の人体には約何個の骨がありますか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "約150個"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "約200個"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "約250個"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "約300個"
+        }
+      ],
+      "correct_answers": ["b"]
+    }
+  },
+  {
+    "id": "science_005",
+    "type": "quiz",
+    "category": "science",
+    "title": "DNA構造",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "DNAの塩基として含まれるものはどれですか？（複数選択可）"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "アデニン"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "チミン"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "グアニン"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "シトシン"
+        }
+      ],
+      "correct_answers": ["a", "b", "c", "d"]
+    }
+  }
+]

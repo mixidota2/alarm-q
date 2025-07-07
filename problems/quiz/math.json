@@ -1,0 +1,182 @@
+[
+  {
+    "id": "math_001",
+    "type": "quiz",
+    "category": "math",
+    "title": "二次方程式の解",
+    "difficulty": "medium",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "二次方程式 x² - 5x + 6 = 0 の解を求めなさい。"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "x = 2, 3"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "x = 1, 6"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "x = -2, -3"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "x = 2, -3"
+        }
+      ],
+      "correct_answers": ["a"]
+    }
+  },
+  {
+    "id": "math_002",
+    "type": "quiz",
+    "category": "math",
+    "title": "平方根の計算",
+    "difficulty": "easy",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "√16 × √9 の値を求めなさい。"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "12"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "144"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "25"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "7"
+        }
+      ],
+      "correct_answers": ["a"]
+    }
+  },
+  {
+    "id": "math_003",
+    "type": "quiz",
+    "category": "math",
+    "title": "三角形の内角の和",
+    "difficulty": "easy",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "三角形の内角の和は何度ですか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "90度"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "180度"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "270度"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "360度"
+        }
+      ],
+      "correct_answers": ["b"]
+    }
+  },
+  {
+    "id": "math_004",
+    "type": "quiz",
+    "category": "math",
+    "title": "関数の微分",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "f(x) = x³ - 2x² + 3x - 1 のとき、f'(x) を求めなさい。"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "3x² - 4x + 3"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "x² - 2x + 3"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "3x² - 2x + 1"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "x³ - 4x + 3"
+        }
+      ],
+      "correct_answers": ["a"]
+    }
+  },
+  {
+    "id": "math_005",
+    "type": "quiz",
+    "category": "math",
+    "title": "確率の計算",
+    "difficulty": "medium",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "サイコロを2回投げたとき、目の和が7になる確率を求めなさい。"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "1/6"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "1/3"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "1/12"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "1/9"
+        }
+      ],
+      "correct_answers": ["a"]
+    }
+  }
+]
