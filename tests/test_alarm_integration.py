@@ -9,31 +9,11 @@ from datetime import datetime
 # Add src to path for importing
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
+# 実際のFletとmain.pyを使用
+import flet as ft
 from alarm_manager import AlarmScheduler
 from models.alarm import Alarm, SoundConfig, SnoozeConfig
-
-# Fletが利用できない場合のための代替モック
-try:
-    import flet as ft
-except ImportError:
-    # Fletのモッククラスを作成
-    class FletMock:
-        class Page:
-            pass
-    ft = FletMock()
-
-# 統合テスト用の簡単なアプリケーションモック
-class TestAlarmApp:
-    def __init__(self, page):
-        self.page = page
-        self.alarm_triggered = False
-        self.alarm_manager = Mock()
-    
-    def _on_alarm_trigger(self, alarm):
-        self.alarm_triggered = True
-    
-    def _on_quiz_complete(self, success):
-        self.alarm_triggered = False
+from main import AlarmApp
 
 
 class TestAlarmIntegration(unittest.TestCase):
@@ -68,12 +48,12 @@ class TestAlarmIntegration(unittest.TestCase):
             snooze=SnoozeConfig(enabled=False, duration=300, max_count=3)
         )
         
-        # AlarmAppのモック作成
-        alarm_app = TestAlarmApp(self.mock_page)
+        # 実際のAlarmAppを作成
+        alarm_app = AlarmApp(self.mock_page)
         
         # アラーム発火をシミュレート
         with patch.object(alarm_app, '_show_main_view'):
-            with patch('src.ui.quiz_view.QuizView') as mock_quiz_view_class:
+            with patch('ui.quiz_view.QuizView') as mock_quiz_view_class:
                 mock_quiz_view = Mock()
                 mock_quiz_view.set_page = Mock()
                 mock_quiz_view.start_alarm_sound = Mock(return_value=Mock())
@@ -105,7 +85,7 @@ class TestAlarmIntegration(unittest.TestCase):
                 # 検証: アラーム状態が正しく設定されたか
                 self.assertTrue(alarm_app.alarm_triggered)
     
-    @patch('src.utils.storage.AlarmStorage')
+    @patch('utils.storage.AlarmStorage')
     def test_alarm_scheduler_integration(self, mock_storage):
         """AlarmSchedulerの統合テスト"""
         # ストレージのモック設定
@@ -152,7 +132,7 @@ class TestAlarmIntegration(unittest.TestCase):
     
     def test_quiz_completion_flow(self):
         """クイズ完了時の処理フローテスト"""
-        alarm_app = TestAlarmApp(self.mock_page)
+        alarm_app = AlarmApp(self.mock_page)
         alarm_app.alarm_triggered = True
         
         # AlarmManagerのモック
@@ -178,8 +158,8 @@ class TestAlarmIntegration(unittest.TestCase):
             # 検証: 成功メッセージが表示されたか
             self.assertTrue(self.mock_page.snack_bar.open)
     
-    @patch('src.ui.quiz_view.QuizView')
-    @patch('src.utils.audio.AudioController')
+    @patch('ui.quiz_view.QuizView')
+    @patch('utils.audio.AudioController')
     def test_audio_control_integration(self, mock_audio_controller, mock_quiz_view_class):
         """音声制御の統合テスト"""
         # AudioControllerのモック設定
@@ -207,7 +187,7 @@ class TestAlarmIntegration(unittest.TestCase):
             snooze=SnoozeConfig(enabled=False, duration=300, max_count=3)
         )
         
-        alarm_app = TestAlarmApp(self.mock_page)
+        alarm_app = AlarmApp(self.mock_page)
         
         # アラーム発火
         alarm_app._on_alarm_trigger(test_alarm)
@@ -220,7 +200,7 @@ class TestAlarmIntegration(unittest.TestCase):
     
     def test_alarm_already_triggered_scenario(self):
         """既にアラームが発火中の場合のテスト"""
-        alarm_app = TestAlarmApp(self.mock_page)
+        alarm_app = AlarmApp(self.mock_page)
         alarm_app.alarm_triggered = True  # 既に発火中に設定
         
         test_alarm = Alarm(
@@ -235,7 +215,7 @@ class TestAlarmIntegration(unittest.TestCase):
             snooze=SnoozeConfig(enabled=False, duration=300, max_count=3)
         )
         
-        with patch('src.ui.quiz_view.QuizView') as mock_quiz_view_class:
+        with patch('ui.quiz_view.QuizView') as mock_quiz_view_class:
             # 2回目のアラーム発火を試行
             alarm_app._on_alarm_trigger(test_alarm)
             
