@@ -210,6 +210,14 @@ class QuizView:
         if self.page:
             self.audio_controller.set_page(self.page)
         audio_control = self.audio_controller.play_alarm(sound_config.to_dict())
+        
+        # overlayに追加（main.pyと同様の処理）
+        if audio_control and self.page:
+            self.page.overlay.append(audio_control)
+            self.page.update()
+            import logging
+            logging.info(f"Audio control added to page overlay: {type(audio_control)}")
+        
         return audio_control
     
     def set_page(self, page):
