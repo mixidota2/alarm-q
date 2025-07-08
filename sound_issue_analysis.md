@@ -42,6 +42,16 @@ def start_alarm_sound(self, sound_config):
 - **問題**: 相対パスから絶対パスへの変換処理で問題が発生する可能性
 - **コード**: `src/utils/audio.py` の `play_alarm()` メソッド
 
+### 4. 不要なシステム音声コードの存在 🗑️
+- **問題**: `src/utils/system_audio.py` の `SystemAudioController` クラスが存在
+- **影響**: Fletベースの音声再生のみ使用するため、このコードは無駄でノイズ
+- **対応**: 削除を検討
+
+### 5. 音声機能の単体テスト不備 ⚠️
+- **問題**: 音声関連の単体テストが存在しない
+- **影響**: 音声再生機能の品質保証ができない、リグレッション検出不可
+- **対象**: `AudioController` クラスのテストが必要
+
 ## 🔧 解決策
 
 ### 即座の対応（推奨）
@@ -52,11 +62,21 @@ def start_alarm_sound(self, sound_config):
    ```
 
 ### 根本的な対応
-1. **SystemAudioControllerの使用**
-   - Linuxシステムコマンド（`aplay`, `paplay`）を使用
-   - より安定した音声再生が期待できる
+1. **不要コードの削除**
+   ```bash
+   # SystemAudioControllerの削除
+   rm src/utils/system_audio.py
+   ```
 
-2. **コード修正案**
+2. **音声機能の単体テスト作成**
+   ```python
+   # tests/test_audio.py の作成が必要
+   # - AudioController.play_alarm() のテスト
+   # - 音声ファイル存在チェックのテスト
+   # - ページ参照設定のテスト
+   ```
+
+3. **コード修正案**
    ```python
    # quiz_view.py の修正案
    def start_alarm_sound(self, sound_config):
@@ -78,13 +98,12 @@ def start_alarm_sound(self, sound_config):
    tail -f alarm_debug.log
    ```
 
-2. **音声システムの確認**
-   ```bash
-   # aplayコマンドの存在確認
-   which aplay
-   
-   # paplayコマンドの存在確認  
-   which paplay
+2. **Flet音声システムの動作確認**
+   ```python
+   # AudioControllerの動作テスト用コード
+   from src.utils.audio import AudioController
+   controller = AudioController()
+   # テスト音声ファイルでの動作確認
    ```
 
 ## 📊 影響度評価
@@ -94,19 +113,27 @@ def start_alarm_sound(self, sound_config):
 | 音声ファイル破損 | 🔴 高 | 🔴 高 | 🟢 低 |
 | Flet音声実装 | 🟡 中 | 🟡 中 | 🟡 中 |
 | パス解決問題 | 🟡 中 | 🟡 中 | 🟡 中 |
+| 不要コード存在 | 🟡 中 | 🟢 低 | 🟢 低 |
+| テスト不備 | 🟡 中 | 🟡 中 | 🟡 中 |
 
 ## 🎯 推奨される対応順序
 
 1. **音声ファイルの交換**（最優先）
-2. **SystemAudioControllerの導入検討**
-3. **Flet音声システムの修正**
-4. **ログ機能の強化**
+2. **Flet音声システムの修正**
+3. **音声機能の単体テスト作成**
+4. **不要なシステム音声コードの削除**
+5. **ログ機能の強化**
 
 ## 📝 追加情報
 
 ### 利用可能な音声システム
-- **Fletベース**: `src/utils/audio.py` - `AudioController`
-- **システムコマンドベース**: `src/utils/system_audio.py` - `SystemAudioController`
+- **Fletベース**: `src/utils/audio.py` - `AudioController` （推奨）
+- ~~**システムコマンドベース**: `src/utils/system_audio.py` - `SystemAudioController`~~ （削除対象: 無駄でノイズ）
+
+### テスト関連
+- **現状**: 音声機能の単体テストが存在しない
+- **必要**: `tests/test_audio.py` の作成
+- **テスト対象**: AudioController, 音声ファイル処理, ページ参照管理
 
 ### 設定ファイル
 - **依存関係**: `pyproject.toml` に `flet-audio>=0.1.0` を含む
