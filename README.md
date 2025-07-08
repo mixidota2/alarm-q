@@ -4,7 +4,7 @@
 
 ## 機能概要
 
-- **アラーム機能**: 指定時刻にアラームを発火
+- **アラーム機能**: 指定時刻にアラームを発火 ⚠️ **現在バグのため動作しません**
 - **クイズシステム**: 数学、一般知識、科学の問題を出題
 - **正解まで継続**: 正解するまでアラーム音が止まらない
 - **複数難易度**: 簡単・普通・難しいの3段階
@@ -14,7 +14,7 @@
 
 ✅ **実装済み**:
 - プロジェクト構造とデータモデル
-- アラーム設定・管理機能
+- アラーム設定・管理機能（⚠️ バグあり：実際のアラーム発火が動作しません）
 - クイズ表示・正誤判定システム
 - 基本UI（メイン画面、アラーム設定画面、クイズ画面）
 - サンプル問題データ（数学・一般知識・科学）
@@ -27,7 +27,7 @@
 
 ## Run the app
 
-### uv（推奨）
+### uv
 
 Run as a desktop app:
 
@@ -39,26 +39,6 @@ Run as a web app:
 
 ```bash
 uv run flet run --web
-```
-
-### Poetry
-
-Install dependencies from `pyproject.toml`:
-
-```bash
-poetry install
-```
-
-Run as a desktop app:
-
-```bash
-poetry run flet run
-```
-
-Run as a web app:
-
-```bash
-poetry run flet run --web
 ```
 
 For more details on running the app, refer to the [Getting Started Guide](https://flet.dev/docs/getting-started/).
@@ -99,6 +79,10 @@ Formatting:
 ```bash
 uv run ruff format src/
 ```
+
+## 既知の問題
+
+⚠️ **アラーム機能のバグ**: 現在、アラーム機能は実装されていますが、実際のアラーム発火が正常に動作しません。アラーム設定UI は利用できますが、指定時刻になってもアラームが鳴らない状態です。
 
 ## Build the app
 
