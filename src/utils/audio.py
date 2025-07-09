@@ -40,6 +40,19 @@ class AudioController:
             logging.error(f"システムオーディオエラー: {e}")
             return None
     
+    def stop_alarm(self):
+        """アラーム音声を停止"""
+        if self.is_playing:
+            try:
+                self.system_audio.stop_alarm()
+                self.is_playing = False
+                
+                import logging
+                logging.info("システムオーディオでアラーム音声停止")
+            except Exception as e:
+                import logging
+                logging.error(f"システムオーディオ停止エラー: {e}")
+    
     def _create_test_audio(self):
         """テスト用の音声コントロールを作成（音声ファイルがない場合）"""
         import logging

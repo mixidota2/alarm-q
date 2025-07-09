@@ -40,11 +40,12 @@ class AlarmView:
             label="問題セット",
             width=150,
             options=[
+                ft.dropdown.Option("statistics", "統計学"),
                 ft.dropdown.Option("math", "数学"),
                 ft.dropdown.Option("general", "一般知識"),
                 ft.dropdown.Option("science", "科学")
             ],
-            value="math"
+            value="statistics"
         )
         
         self.volume_slider = ft.Slider(
@@ -209,7 +210,7 @@ class AlarmView:
         self.time_input.value = self.alarm.time
         self.label_input.value = self.alarm.label
         self.difficulty_dropdown.value = self.alarm.difficulty
-        self.problem_sets_dropdown.value = self.alarm.problem_sets[0] if self.alarm.problem_sets else "math"
+        self.problem_sets_dropdown.value = self.alarm.problem_sets[0] if self.alarm.problem_sets else "statistics"
         self.volume_slider.value = self.alarm.sound.volume
         self.snooze_checkbox.value = self.alarm.snooze.enabled
         self.snooze_duration.value = str(self.alarm.snooze.duration)

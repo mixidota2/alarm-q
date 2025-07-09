@@ -1,0 +1,722 @@
+[
+  {
+    "id": "stats_001",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "多変量正規分布の性質",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "2変量正規分布N₂(μ, Σ)において、条件付き分布X₁|X₂=x₂の分散はどのように表されるか？Σ₁₁, Σ₂₂は対角成分、Σ₁₂は非対角成分とする。"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "Σ₁₁ - Σ₁₂²/Σ₂₂"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "Σ₁₁ + Σ₁₂²/Σ₂₂"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "Σ₁₁Σ₂₂ - Σ₁₂²"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "Σ₁₁/Σ₂₂"
+        }
+      ],
+      "correct_answers": ["a"]
+    }
+  },
+  {
+    "id": "stats_002",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "尤度比検定統計量",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "尤度比検定において、帰無仮説H₀が真のとき、-2log(尤度比)の漸近分布は何か？自由度をqとする。"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "N(0,1)"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "t(q)"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "χ²(q)"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "F(q,∞)"
+        }
+      ],
+      "correct_answers": ["c"]
+    }
+  },
+  {
+    "id": "stats_003",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "フィッシャー情報量",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "パラメータθの最尤推定量θ̂の漸近分散の下界を与える不等式は何と呼ばれるか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "コーシー・シュワルツの不等式"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "クラメール・ラオの不等式"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "チェビシェフの不等式"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "マルコフの不等式"
+        }
+      ],
+      "correct_answers": ["b"]
+    }
+  },
+  {
+    "id": "stats_004",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "混合分布のEM算法",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "EM算法において、Eステップで計算するのは何の期待値か？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "完全データの対数尤度"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "不完全データの対数尤度"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "事後確率"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "潜在変数の分布"
+        }
+      ],
+      "correct_answers": ["a"]
+    }
+  },
+  {
+    "id": "stats_005",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "主成分分析の性質",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "主成分分析において、第k主成分が説明する分散の割合はどのように表されるか？λₖを第k固有値とする。"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "λₖ / Σλᵢ"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "λₖ² / Σλᵢ²"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "√λₖ / Σ√λᵢ"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "λₖ / p（pは変数の数）"
+        }
+      ],
+      "correct_answers": ["a"]
+    }
+  },
+  {
+    "id": "stats_006",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "カルマンフィルタ",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "カルマンフィルタにおいて、予測ステップで更新されるのは何か？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "状態の事前分布"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "状態の事後分布"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "観測値の尤度"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "カルマンゲイン"
+        }
+      ],
+      "correct_answers": ["a"]
+    }
+  },
+  {
+    "id": "stats_007",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "ベイズ因子",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "ベイズ因子B₁₀ = p(D|M₁)/p(D|M₀)において、B₁₀ > 10の場合、モデルM₁に対する証拠の強さはどう解釈されるか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "弱い証拠"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "中程度の証拠"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "強い証拠"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "非常に強い証拠"
+        }
+      ],
+      "correct_answers": ["c"]
+    }
+  },
+  {
+    "id": "stats_008",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "時系列分析のARIMA模型",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "ARIMA(p,d,q)模型において、dは何を表すパラメータか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "自己回帰項の次数"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "移動平均項の次数"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "差分の次数"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "季節性の周期"
+        }
+      ],
+      "correct_answers": ["c"]
+    }
+  },
+  {
+    "id": "stats_009",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "マルチンゲールの性質",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "確率過程{Xₜ}がマルチンゲールであるための条件として正しいものはどれか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "E[Xₜ₊₁|Fₜ] = Xₜ"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "E[Xₜ₊₁|Fₜ] > Xₜ"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "E[Xₜ₊₁|Fₜ] < Xₜ"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "Var[Xₜ₊₁|Fₜ] = 0"
+        }
+      ],
+      "correct_answers": ["a"]
+    }
+  },
+  {
+    "id": "stats_010",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "スペクトル分析",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "定常時系列のパワースペクトル密度関数は、何のフーリエ変換として定義されるか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "自己共分散関数"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "自己相関関数"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "偏自己相関関数"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "分散関数"
+        }
+      ],
+      "correct_answers": ["a"]
+    }
+  },
+  {
+    "id": "stats_011",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "ファクター分析の識別性",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "因子分析モデルにおいて、因子負荷行列の識別のために通常課される制約は何か？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "因子の分散を1に固定"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "因子負荷行列を上三角行列にする"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "因子間の相関を0にする"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "すべて可能な制約"
+        }
+      ],
+      "correct_answers": ["d"]
+    }
+  },
+  {
+    "id": "stats_012",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "ロバスト統計の概念",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "Huber推定量の影響関数の性質として正しいものはどれか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "有界である"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "非有界である"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "単調増加である"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "連続ではない"
+        }
+      ],
+      "correct_answers": ["a"]
+    }
+  },
+  {
+    "id": "stats_013",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "ブートストラップ法の理論",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "ブートストラップ法において、一致性が保証されるための条件として重要なのは何か？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "統計量のHadamard微分可能性"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "経験分布の弱収束"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "Delta法の適用可能性"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "すべて重要"
+        }
+      ],
+      "correct_answers": ["d"]
+    }
+  },
+  {
+    "id": "stats_014",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "共積分分析",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "単位根を持つ2つの時系列が共積分関係にあるとき、誤差修正モデル(ECM)の誤差修正項の係数はどのような性質を持つか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "正の値"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "負の値"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "ゼロ"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "符号は不定"
+        }
+      ],
+      "correct_answers": ["b"]
+    }
+  },
+  {
+    "id": "stats_015",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "多重検定の補正",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "False Discovery Rate (FDR)を制御するBenjamini-Hochberg法において、第i番目（昇順）のp値P(i)に対する閾値はどのように設定されるか？mを検定の総数、αを有意水準とする。"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "(i/m)α"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "α/m"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "α/(m-i+1)"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "iα"
+        }
+      ],
+      "correct_answers": ["a"]
+    }
+  },
+  {
+    "id": "stats_016",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "生存分析のハザード関数",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "Cox比例ハザードモデルにおいて、ベースラインハザードを推定する方法として正しいものはどれか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "Breslow推定量"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "Kaplan-Meier推定量"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "Nelson-Aalen推定量"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "Efron推定量"
+        }
+      ],
+      "correct_answers": ["a"]
+    }
+  },
+  {
+    "id": "stats_017",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "変分ベイズ法",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "変分ベイズ法における下界（ELBO：Evidence Lower BOund）は何の下界となっているか？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "事後分布"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "周辺尤度"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "KLダイバージェンス"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "エントロピー"
+        }
+      ],
+      "correct_answers": ["b"]
+    }
+  },
+  {
+    "id": "stats_018",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "確率微分方程式",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "Ito積分における伊藤の補題（Ito's lemma）で、関数f(t,Xt)の微分にブラウン運動項の二次変分が現れる理由は何か？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "ブラウン運動の非微分性"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "二次変分がゼロでないため"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "マルチンゲール性"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "測度変換の影響"
+        }
+      ],
+      "correct_answers": ["b"]
+    }
+  },
+  {
+    "id": "stats_019",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "高次元データ解析",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "高次元回帰におけるLasso推定量の選択一致性（selection consistency）が成り立つための条件として知られているのは何か？"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "制限固有値条件（Restricted Eigenvalue Condition）"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "非復帰条件（Irrepresentable Condition）"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "相互可干渉条件（Mutual Incoherence Condition）"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "すべて関連する条件"
+        }
+      ],
+      "correct_answers": ["d"]
+    }
+  },
+  {
+    "id": "stats_020",
+    "type": "quiz",
+    "category": "statistics",
+    "title": "ランダム行列理論",
+    "difficulty": "hard",
+    "content": {
+      "question": {
+        "type": "text",
+        "text": "Marchenko-Pastur定理において、標本共分散行列の固有値の漸近分布が記述される条件は何か？p,nをそれぞれ次元数と標本サイズとする。"
+      },
+      "options": [
+        {
+          "id": "a",
+          "type": "text",
+          "content": "p/n → c ∈ (0,1) as n → ∞"
+        },
+        {
+          "id": "b",
+          "type": "text",
+          "content": "p/n → 0 as n → ∞"
+        },
+        {
+          "id": "c",
+          "type": "text",
+          "content": "p/n → ∞ as n → ∞"
+        },
+        {
+          "id": "d",
+          "type": "text",
+          "content": "p = n"
+        }
+      ],
+      "correct_answers": ["a"]
+    }
+  }
+]

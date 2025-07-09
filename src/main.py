@@ -4,6 +4,8 @@ from typing import Optional
 from ui.main_view import MainView
 from ui.alarm_view import AlarmView
 from ui.quiz_view import QuizView
+from ui.problem_view import ProblemView
+from ui.settings_view import SettingsView
 from alarm_manager import AlarmManager
 from models.alarm import Alarm
 
@@ -36,7 +38,9 @@ class AlarmApp:
         
         self.main_view = MainView(
             on_alarm_settings=self._show_alarm_settings,
-            on_show_message=self._show_message
+            on_show_message=self._show_message,
+            on_problem_settings=self._show_problem_settings,
+            on_settings=self._show_settings
         )
         self._show_main_view()
         
@@ -55,6 +59,24 @@ class AlarmApp:
             alarm_id=alarm_id
         )
         self.current_view = alarm_view.get_view()
+        self.page.add(self.current_view)
+        self.page.update()
+    
+    def _show_problem_settings(self):
+        self.page.clean()
+        problem_view = ProblemView(
+            on_back=self._show_main_view
+        )
+        self.current_view = problem_view.get_view()
+        self.page.add(self.current_view)
+        self.page.update()
+    
+    def _show_settings(self):
+        self.page.clean()
+        settings_view = SettingsView(
+            on_back=self._show_main_view
+        )
+        self.current_view = settings_view.get_view()
         self.page.add(self.current_view)
         self.page.update()
     

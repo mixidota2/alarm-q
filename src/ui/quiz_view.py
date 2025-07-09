@@ -39,7 +39,7 @@ class QuizView:
         
         title = ft.Text(
             "アラーム問題",
-            size=28,
+            size=16,
             weight=ft.FontWeight.BOLD,
             color="red900",
             text_align=ft.TextAlign.CENTER
@@ -47,25 +47,39 @@ class QuizView:
         
         warning_text = ft.Text(
             "正解するまでアラームは停止しません",
-            size=16,
+            size=10,
             color="red700",
             text_align=ft.TextAlign.CENTER
         )
         
         self._load_current_problem()
         
+        # 警告と進捗を右サイドバーに配置
+        sidebar = ft.Container(
+            content=ft.Column([
+                warning_text,
+                self.progress_text,
+                self.result_text
+            ], spacing=5),
+            padding=10,
+            bgcolor="red100",
+            width=200,
+            border_radius=5
+        )
+        
         main_content = ft.Column([
             ft.Container(
-                content=ft.Column([
-                    title,
-                    warning_text,
-                    self.progress_text,
-                    self.result_text
-                ]),
-                padding=20,
-                bgcolor="red100"
+                content=title,
+                padding=10,
+                alignment=ft.alignment.center
             ),
-            self.quiz_container
+            ft.Row([
+                ft.Container(
+                    content=self.quiz_container,
+                    expand=True
+                ),
+                sidebar
+            ], spacing=10)
         ])
         
         # スクロール可能にする
@@ -114,9 +128,19 @@ class QuizView:
         self.result_text.value = "正解！アラームを停止します。"
         self.result_text.color = "green"
         
+        # UI更新
+        if self.page:
+            self.page.update()
+        
         self.audio_controller.stop_alarm()
         
-        
+        # 少し待ってからクイズを完了
+        import threading
+        timer = threading.Timer(2.0, self._complete_quiz_success)
+        timer.start()
+    
+    def _complete_quiz_success(self):
+        """正解時のクイズ完了処理"""
         if self.on_quiz_complete:
             self.on_quiz_complete(True)
     

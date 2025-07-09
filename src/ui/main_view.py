@@ -6,9 +6,12 @@ from utils.storage import AlarmStorage
 
 
 class MainView:
-    def __init__(self, on_alarm_settings: Optional[Callable] = None, on_show_message: Optional[Callable] = None):
+    def __init__(self, on_alarm_settings: Optional[Callable] = None, on_show_message: Optional[Callable] = None, 
+                 on_problem_settings: Optional[Callable] = None, on_settings: Optional[Callable] = None):
         self.on_alarm_settings = on_alarm_settings
         self.on_show_message = on_show_message
+        self.on_problem_settings = on_problem_settings
+        self.on_settings = on_settings
         self.alarm_storage = AlarmStorage()
         self.alarms: List[Alarm] = []
         self.next_alarm_text = ft.Text(
@@ -20,7 +23,7 @@ class MainView:
     
     def build(self) -> ft.Control:
         title = ft.Text(
-            "alearm-q",
+            "alarm-q",
             size=32,
             weight=ft.FontWeight.BOLD,
             text_align=ft.TextAlign.CENTER
@@ -129,13 +132,13 @@ class MainView:
     
     def _on_problem_settings_click(self, e):
         print("問題管理ボタンがクリックされました")
-        if self.on_show_message:
-            self.on_show_message("問題管理機能は今後実装予定です")
+        if self.on_problem_settings:
+            self.on_problem_settings()
     
     def _on_settings_click(self, e):
         print("設定ボタンがクリックされました")
-        if self.on_show_message:
-            self.on_show_message("設定機能は今後実装予定です")
+        if self.on_settings:
+            self.on_settings()
     
     def refresh_alarms(self):
         self.alarms = self.alarm_storage.load_alarms()
