@@ -13,6 +13,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 from utils.audio import AudioController
 import flet as ft
+from flet_audio import Audio
 
 
 class TestAudioController(unittest.TestCase):
@@ -42,7 +43,7 @@ class TestAudioController(unittest.TestCase):
         self.assertIsNone(self.audio_controller.page)
     
     @patch('os.path.exists')
-    @patch('flet.Audio')
+    @patch('utils.audio.Audio')
     def test_play_alarm_with_valid_file(self, mock_audio, mock_exists):
         """有効な音声ファイルでのアラーム再生をテスト"""
         # モックの設定
@@ -181,7 +182,7 @@ class TestAudioController(unittest.TestCase):
         self.assertEqual(result, mock_audio_player)
     
     @patch('os.path.exists')
-    @patch('flet.Audio')
+    @patch('utils.audio.Audio')
     def test_relative_path_conversion(self, mock_audio, mock_exists):
         """相対パスから絶対パスへの変換をテスト"""
         mock_exists.return_value = True
@@ -235,7 +236,7 @@ class TestAudioController(unittest.TestCase):
         self.assertTrue(True)
     
     @patch('os.path.exists')
-    @patch('flet.Audio')
+    @patch('utils.audio.Audio')
     def test_default_volume_and_loop(self, mock_audio, mock_exists):
         """デフォルトの音量とループ設定をテスト"""
         mock_exists.return_value = True

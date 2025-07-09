@@ -209,16 +209,15 @@ class QuizView:
         # AudioControllerにページ参照を設定
         if self.page:
             self.audio_controller.set_page(self.page)
-        audio_control = self.audio_controller.play_alarm(sound_config.to_dict())
         
-        # overlayに追加（main.pyと同様の処理）
-        if audio_control and self.page:
-            self.page.overlay.append(audio_control)
-            self.page.update()
-            import logging
-            logging.info(f"Audio control added to page overlay: {type(audio_control)}")
+        # システムオーディオで音声再生
+        self.audio_controller.play_alarm(sound_config.to_dict())
         
-        return audio_control
+        import logging
+        logging.info("システムオーディオでアラーム音声再生開始")
+        
+        # システムオーディオのみ使用のため、Noneを返す
+        return None
     
     def set_page(self, page):
         """ページ参照を設定"""

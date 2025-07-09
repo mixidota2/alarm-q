@@ -80,13 +80,9 @@ class AlarmApp:
         # ページ参照を設定
         quiz_view.set_page(self.page)
         
-        # 音声制御をページに追加
-        audio_control = quiz_view.start_alarm_sound(alarm.sound)
-        if audio_control:
-            self.page.overlay.append(audio_control)
-            logging.info(f"Audio control added to page overlay: {type(audio_control)}")
-        else:
-            logging.info("Audio control is None - no sound will play")
+        # システムオーディオで音声再生を開始
+        quiz_view.start_alarm_sound(alarm.sound)
+        logging.info("システムオーディオでアラーム音声再生を開始")
         
         self.current_view = quiz_view.get_view()
         self.page.add(self.current_view)
@@ -101,12 +97,12 @@ class AlarmApp:
         if success:
             self.page.snack_bar = ft.SnackBar(
                 content=ft.Text("正解！アラームを停止しました。"),
-                bgcolor=ft.colors.GREEN
+                bgcolor=ft.Colors.GREEN
             )
         else:
             self.page.snack_bar = ft.SnackBar(
                 content=ft.Text("すべての問題が終了しました。"),
-                bgcolor=ft.colors.BLUE
+                bgcolor=ft.Colors.BLUE
             )
         
         self.page.snack_bar.open = True
