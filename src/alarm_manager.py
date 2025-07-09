@@ -5,7 +5,7 @@ from datetime import datetime
 from typing import List, Optional, Callable
 from models.alarm import Alarm
 from utils.storage import AlarmStorage
-from utils.audio import AudioController
+# utils.audio import removed - audio control is handled by main.py
 
 # ログ設定
 logging.basicConfig(
@@ -22,7 +22,6 @@ class AlarmScheduler:
         self.thread: Optional[threading.Thread] = None
         self.check_interval = 10  # 10秒ごとにチェック（デバッグ用）
         self.alarm_storage = AlarmStorage()
-        self.audio_controller = AudioController()
         self.on_alarm_trigger = on_alarm_trigger
         self.triggered_alarms: set[str] = set()
     
@@ -90,7 +89,6 @@ class AlarmScheduler:
 class AlarmManager:
     def __init__(self, on_alarm_trigger: Optional[Callable] = None):
         self.scheduler = AlarmScheduler(on_alarm_trigger)
-        self.audio_controller = AudioController()
         self.current_alarm: Optional[Alarm] = None
         self.is_alarm_active = False
     
@@ -101,31 +99,21 @@ class AlarmManager:
         self.scheduler.stop()
         self.stop_current_alarm()
     
-    def trigger_alarm(self, alarm: Alarm):
-        if self.is_alarm_active:
-            return
-        
-        self.current_alarm = alarm
-        self.is_alarm_active = True
-        
-        logging.info(f"アラーム開始: {alarm.label}")
-        
-        self.audio_controller.play_alarm(alarm.sound.to_dict())
-        
-        if self.scheduler.on_alarm_trigger:
-            self.scheduler.on_alarm_trigger(alarm)
+    # trigger_alarm method removed - alarm triggering is handled by AlarmScheduler directly
     
     def stop_current_alarm(self):
+        """現在のアラームを停止（音声制御は呼び出し元で処理）"""
         if not self.is_alarm_active:
             return
         
         logging.info("アラーム停止")
         
-        self.audio_controller.stop_alarm()
+        # 音声制御は main.py の QuizView で処理されるため、ここでは状態のみ更新
         self.current_alarm = None
         self.is_alarm_active = False
     
     def snooze_current_alarm(self):
+        """スヌーズ機能（音声制御は呼び出し元で処理）"""
         if not self.is_alarm_active or not self.current_alarm:
             return
         
@@ -134,8 +122,8 @@ class AlarmManager:
         
         logging.info(f"スヌーズ: {self.current_alarm.snooze.duration}秒")
         
-        self.audio_controller.stop_alarm()
-        
+        # 音声制御は呼び出し元（QuizView）で処理
+        # ここではスヌーズタイマーのみ管理
         snooze_thread = threading.Thread(
             target=self._snooze_timer,
             args=(self.current_alarm.snooze.duration,),
@@ -144,10 +132,13 @@ class AlarmManager:
         snooze_thread.start()
     
     def _snooze_timer(self, duration: int):
+        """スヌーズタイマー（音声再開は呼び出し元で処理）"""
         time.sleep(duration)
         
+        # スヌーズ後の音声再開は QuizView で処理されるため、
+        # ここではログ出力のみ
         if self.is_alarm_active and self.current_alarm:
-            self.audio_controller.play_alarm(self.current_alarm.sound.to_dict())
+            logging.info("スヌーズ終了 - 音声再開は QuizView で処理")
     
     def get_current_alarm(self) -> Optional[Alarm]:
         return self.current_alarm

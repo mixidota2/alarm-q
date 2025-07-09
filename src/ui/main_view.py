@@ -59,13 +59,8 @@ class MainView:
             spacing=20
         )
         
-        # アラーム一覧をColumnのままにして、親をスクロール可能にする
+        # アラーム一覧用のColumn（現在は使用しないがself.alarms_listを初期化）
         self.alarms_list = ft.Column(spacing=10)
-        
-        # アラームを追加
-        for alarm in self.alarms:
-            alarm_item = self._create_alarm_item(alarm)
-            self.alarms_list.controls.append(alarm_item)
         
         # ListViewを使用してスクロール可能にする（より確実な方法）
         all_items = []
